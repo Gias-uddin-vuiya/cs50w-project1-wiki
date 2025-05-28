@@ -7,7 +7,7 @@
 {% block body %}
     <h1>{{ title }}</h1>
     <div class="entry-content">
-        {{ content|safe }}
+        {{ content|safe }} <!-- Use 'safe' to render HTML content -->
     </div>
-    <a href="{% url 'index' %}">Back to index</a>
+    <a href="{% url 'index' %}">Back to index</a> 
 {% endblock %}
