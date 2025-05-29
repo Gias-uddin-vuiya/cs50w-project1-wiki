@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.shortcuts import redirect
-
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from . import util
 
 
@@ -49,8 +50,26 @@ def search(request):
         "results": results
     })
 
+
 def create(request):
 
-    return render(request, "encyclopedia/create.html", {
-        "message": "This feature is not implemented yet."
-    })
+    if request.method == "POST":
+        title = request.POST.get("title", "").strip()
+        content = request.POST.get("content", "").strip()
+
+        filename = f"entries/{title}.md"
+
+        if default_storage.exists(filename):
+            return render(request, "encyclopedia/create.html", {
+                "message": f"The entry '{title}' already exists.",
+                "title": title,
+                "content": content
+            })
+
+        # save new entry
+        default_storage.save(filename, ContentFile(content))
+
+        # Redirect to the new entry page
+        return redirect(reverse("entry_page", args=[title]))
+
+    return render(request, "encyclopedia/create.html")
