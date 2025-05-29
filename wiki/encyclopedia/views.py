@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 from . import util
 
@@ -21,4 +22,22 @@ def entry_page(request, title):
     return render(request, "encyclopedia/entry.html", {
         "title": title,
         "content": content
+    })
+
+
+def search(request):
+    query = request.GET.get('q', '').strip()
+    entries = util.list_entries()
+    
+   # Exact match (case-insensitive)
+    for entry in entries:
+        if entry.lower() == query.lower():
+            return redirect('entry_page', title=entry)
+    
+    # partial match (case-insensitive)
+    results = [entry for entry in entries if query.lower() in entry.lower()]
+    
+    return render(request, "encyclopedia/search_results.html", {
+        "query": query,
+        "results": results
     })
