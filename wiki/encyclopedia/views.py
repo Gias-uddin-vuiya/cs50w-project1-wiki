@@ -48,3 +48,9 @@ def search(request):
         "query": query,
         "results": results
     })
+
+def create(request):
+
+    return render(request, "encyclopedia/create.html", {
+        "message": "This feature is not implemented yet."
+    })
