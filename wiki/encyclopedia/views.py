@@ -29,6 +29,13 @@ def search(request):
     query = request.GET.get('q', '').strip()
     entries = util.list_entries()
     
+
+    if not query:
+        return render(request, "encyclopedia/search_results.html", {
+            "query": query,
+            "results": []
+        })
+
    # Exact match (case-insensitive)
     for entry in entries:
         if entry.lower() == query.lower():
