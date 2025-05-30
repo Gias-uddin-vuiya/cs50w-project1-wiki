@@ -1,1 +1,1 @@
-# cs50w-project1-wiki
+# Harvard CS50W Project-1 Wiki
