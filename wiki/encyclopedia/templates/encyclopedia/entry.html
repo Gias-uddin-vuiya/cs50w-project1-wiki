@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block body %}
+    
+    <!-- edit button  -->
+    <a href="{% url 'edit' title=title %}">Edit</a>
+     
     <h1>{{ title }}</h1>
+
     <div class="entry-content">
         {{ content|safe }} <!-- Use 'safe' to render HTML content -->
     </div>

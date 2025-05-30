@@ -73,3 +73,25 @@ def create(request):
         return redirect(reverse("entry_page", args=[title]))
 
     return render(request, "encyclopedia/create.html")
+
+
+def edit(request, title):
+
+    if request.method == "POST":
+        new_title = request.POST["title"]
+        new_content = request.POST["content"]
+        util.save_entry(new_title, new_content)
+        return redirect("entry_page", title=new_title)
+    
+    # GET request: Load the entry content and populate form
+    content = util.get_entry(title)
+    if content is None:
+        return render(request, "encyclopedia/error.html", {
+            "message": "Entry not found."
+        })
+    
+    return render(request, "encyclopedia/edit.html", {
+        "title": title,
+        "title_value": title,  # pre-fill title field
+        "content_value": content  # pre-fill textarea
+    })
