@@ -1,3 +1,5 @@
+import random
+import markdown2
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect
@@ -19,10 +21,11 @@ def entry_page(request, title):
             "message": f"The entry '{title}' was not found."
         })
     
-    
+    html_content = markdown2.markdown(content)
+
     return render(request, "encyclopedia/entry.html", {
         "title": title,
-        "content": content
+        "content": html_content
     })
 
 
@@ -95,3 +98,9 @@ def edit(request, title):
         "title_value": title,  # pre-fill title field
         "content_value": content  # pre-fill textarea
     })
+
+
+def random_page(request):
+    entries  = util.list_entries()
+    random_title = random.choice(entries)
+    return redirect('entry_page', title=random_title)
