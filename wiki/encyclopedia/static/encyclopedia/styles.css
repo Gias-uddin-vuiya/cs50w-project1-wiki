@@ -98,3 +98,18 @@ textarea {
 .sidebar-item div a {
     margin-left: 4px;
 }
+
+/* home pade topic list */
+.ul-topic-list {
+    width: 200px;
+    list-style-type: none;
+}
+
+
+.ul-topic-list li {
+    margin: 6px 0px;
+    padding: 4px 4px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    text-align: left;
+}
