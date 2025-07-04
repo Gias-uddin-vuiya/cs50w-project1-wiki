@@ -1,0 +1,1 @@
+Science is **a systematic enterprise that builds and organizes knowledge in the form of testable explanations and predictions about the universe.** It's a pursuit of knowledge and understanding of the natural and social world using a systematic methodology based on evidence.
