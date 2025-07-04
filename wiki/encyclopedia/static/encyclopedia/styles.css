@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: white;
+    box-sizing: border-box;
 }
 
 code {
@@ -21,22 +22,79 @@ textarea {
     padding: 10px;
 }
 
-.search {
+
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 32px;
+    font-family: initial;
+    margin: 12px 0px;
+}
+
+.create-entry-form {
+    width: 80%;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     font-size: 15px;
     line-height: 15px;
 }
 
+.search {
+    width: 70%;
+    font-size: 15px;
+    line-height: 15px;
+    margin-left: 8px;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.fa-magnifying-glass {
+    padding-left: 5px;
+}
+
 .sidebar {
-    background-color: #f0f0f0;
     height: 100vh;
-    padding: 20px;
+    background-color: #d7d5d538;
 }
 
-.sidebar h2 {
-    margin-top: 5px;
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.create-entry-form {
-    width: 80%;
+.sidebar .logo img {
+    width: 150px;
+}
+
+.search-field {
+    width: 200px;
+    padding-left: 4px;
+    background: white;
+    border: 1px solid #afa9a9;
+    border-radius: 6px;
+}
+
+.sidebar-item {
+    width: 200px;
+    margin: 12px 10px 12px 20px;
+}
+
+.sidebar-item i {
+    color: #007bff;
+}
+
+.sidebar-item div {
+    margin: 10px 0px;
+}
+
+.sidebar-item div a {
+    margin-left: 4px;
 }
