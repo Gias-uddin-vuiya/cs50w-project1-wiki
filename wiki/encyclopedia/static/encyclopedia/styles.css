@@ -113,3 +113,48 @@ textarea {
     border-radius: 5px;
     text-align: left;
 }
+
+/* --------------- */
+/* Error message design */
+/* --------------- */
+
+.error-msg1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* background-color: #fff5f5; */
+}
+
+.error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 40px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.error-box i {
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-size: 2rem;
+    background-color: #dc3545;
+    color: #fff;
+    border: 3px solid #ffb3b3;
+}
+
+.error-box p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+.error-box .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+}
