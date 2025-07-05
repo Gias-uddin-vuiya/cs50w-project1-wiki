@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Search Results for "{{ query }}"</h2>
 
     {% if results %}
         <ul>
@@ -14,6 +13,14 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p>No results found.</p>
+        
+        <div class="error-msg1">
+        <div class="error-box">
+            <i class="fa-solid fa-xmark"></i>
+            <h2>Search Results for "{{ query }}"</h2>
+            <p>No results found.</p>
+            <a href="{% url 'index' %}" class="btn btn-primary" role="button">Back to Home</a>
+        </div>
+    </div>
     {% endif %}
 {% endblock %}
